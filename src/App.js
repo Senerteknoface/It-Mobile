@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home";
+import Activity from "./pages/Activity";
+import NewActivity from "./pages/NewActivity";
+import ActivityDetail from "./pages/ActivityDetail";
+import Login from "./pages/Login";
+import UserDetail from "./pages/UserDetail"; 
+import Test from "./components/Test.tsx"
+import Chat from "./pages/Chat.jsx";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/Activity" element={<Activity />}></Route>
+          <Route path="/NewActivity" element={<NewActivity />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/Test" element={<Test />}></Route>
+          <Route path="/Chat" element={<Chat />}></Route>
+          <Route path="/UserDetail/:userId" element={<UserDetail />}></Route>
+          <Route path="/ActivityDetail/:activityId" element={<ActivityDetail/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
